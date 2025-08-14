@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightHorizon - Мир среди вершин</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/theme/lec.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            transition: all 0.5s ease;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-down-arrow {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(to bottom, #1a202c, transparent);
+        }
+        
+        .section-divider-bottom {
+            height: 100px;
+            background: linear-gradient(to top, #1a202c, transparent);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- навбар -->
+    <nav class="fixed w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-400 hover:text-green-300 transition">
+                <i class="fas fa-mountain mr-2"></i>RIGHTHORIZON
+            </a>
+            <div class="flex space-x-6">
+                <a href="404.html" class="text-gray-300 hover:text-green-400 transition">Донат</a>
+                <a href="404.html" class="text-gray-300 hover:text-green-400 transition">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- главный экран, начальные строчки -->
+    <section class="hero-section flex flex-col justify-center items-center relative">
+        <div class="text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">RIGHTHORIZON</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto drop-shadow-md">
+                Погрузись в игровой мир нашего сервера: исследуй просторы, строй грандиозные базы, участвуй в ивентах и стань частью дружного сообщества!
+            </p>
+            <p class="text-3xl md:text-3xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md">[СЕРВЕР НЕДОСТУПЕН!]</p>
+            <button id="join-btn" onclick="document.querySelector('.section-divider').scrollIntoView({behavior: 'smooth', block: 'start'})" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Присоединиться</button>
+        </div>
+        
+        <div class="absolute bottom-10 scroll-down-arrow">
+            <i class="fas fa-chevron-down text-3xl text-white animate-bounce"></i>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- по просьбе моего разраба, хуй знает зачем это -->
+    <div class="pt-20"></div>
+
+    <!-- почему тип наш сервак лучший -->
+    <section class="py-20 bg-gray-900" id="why-best-server">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-green-400">Почему наш сервер?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- карта 1 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Уникальный ландшафт</h3>
+                    <p class="text-gray-300">Генерация мира с усиленными горными биомами, глубокими каньонами и живописными долинами. Идеально для строительства и исследований.</p>
+                </div>
+                
+                <!-- карта 2 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Дружное сообщество</h3>
+                    <p class="text-gray-300">Наш сервер объединяет творческих строителей и исследователей. Регулярные ивенты и конкурсы с ценными призами.</p>
+                </div>
+                
+                <!-- карта 3 -->
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Стабильная связь с администрацией</h3>
+                    <p class="text-gray-300">Присоиденяйтесь к дискорду, либо телеграмм, чтобы отбратиться за помощью. Мы всегда рады Вам помочь, чем угодно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- статистика сервака -->
+    <section class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-bold text-orange-400 mb-2">?</div>
+                    <div class="text-gray-300">Работа сервера</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold text-green-400 mb-2">1.20.1</div>
+                    <div class="text-gray-300">Версия игры</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold text-red-400 mb-2">-</div>
+                    <div class="text-gray-300">Активных игроков</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold text-orange-400 mb-2">?</div>
+                    <div class="text-gray-300">Всех сотрудников проекта</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- галерея скринов -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-green-400">Галерея сервера</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="relative overflow-hidden rounded-xl h-64">
+                    <img src="assets/images/drakon.png" 
+                         alt="Дракоша" 
+                         class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                        <span class="text-white text-xl font-bold">Дракоша</span>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-xl h-64">
+                    <img src="assets/images/ya_na_scene.png" 
+                         alt="Деревня в горах" 
+                         class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                        <span class="text-white text-xl font-bold">Я на своей сцене</span>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-xl h-64">
+                    <img src=" assets/images/vlad.png" 
+                         alt="Владислав" 
+                         class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                        <span class="text-white text-xl font-bold">Владислав</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                    Смотреть все
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- донатная секция -->
+    <section id="donate" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-green-400">Поддержать сервер</h2>
+            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">Ваша поддержка помогает развивать сервер и улучшать игровой опыт для всех</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-700 rounded-xl p-6 card-hover">
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Горный путник</h3>
+                    <p class="text-gray-300 mb-6">$2.49 USD</p>
+                    <ul class="text-left space-y-2 mb-6 text-gray-300">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Префикс в чате</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> 3 дополнительных дома</li>
+                    </ul>
+                    <a href="404.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg w-full transition block text-center">Купить</a>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 card-hover border-2 border-green-500 transform scale-105">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 rounded-bl-lg rounded-tr-xl text-sm font-bold">Популярно</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Горный мастер</h3>
+                    <p class="text-gray-300 mb-6">$5.99 USD</p>
+                    <ul class="text-left space-y-2 mb-6 text-gray-300">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Префикс в чате</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> 10 дополнительных домов</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Доступ к приватному миру</li>
+                    </ul>
+                   <a href="404.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg w-full transition block text-center">Купить</a>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 card-hover">
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Горный легенда</h3>
+                    <p class="text-gray-300 mb-6">$12.99 USD</p>
+                    <ul class="text-left space-y-2 mb-6 text-gray-300">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Префикс в чате</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Неограниченные дома</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Доступ к приватному миру</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Персональная помощь от админов</li>
+                    </ul>
+                    <a href="404.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg w-full transition block text-center">Купить</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- это короче чтобы айпи копировать да -->
+    <section class="py-20 bg-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/theme/lec2.png" 
+                 alt="лесной фон" 
+                 class="w-full h-full object-cover opacity-20">
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6 text-green-400">Готов к приключениям?</h2>
+                <p class="text-xl mb-10 text-gray-300">Присоединяйся к нашему сообществу исследователей и строителей. Начни свое путешествие среди величественных гор уже сегодня!</p>
+                
+                <div class="bg-gray-900 rounded-xl p-8 inline-block">
+                    <div class="text-left mb-6">
+                        <h3 class="text-2xl font-bold mb-2 text-green-400">IP-адрес сервера:</h3>
+                        <div class="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
+                            <code class="text-xl">play.righthorizon.online</code>
+                            <button class="ml-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition duration-300" onclick="copyToClipboard('play.righthorizon.online')">
+                                Копировать
+                            </button>
+                        </div>
+                    </div>
+                            <p class="text-xl md:text-xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md">[СЕРВЕР НЕДОСТУПЕН!]</p>    
+                    <div class="flex flex-wrap justify-center gap-4 mt-8">
+                        <a href="https://discord.gg/JPNATqMdyf" class="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-discord mr-2"></i> Discord
+                        </a>
+                        <a href="https://t.me/RightHorizon_Music" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-telegram mr-2"></i>Telegram
+                        </a>
+                        <a href="https://www.youtube.com/@UzalexDR" class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-youtube mr-2"></i> YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider-bottom"></div>
+    
+    <!-- связь с нами бобиками -->
+    <section id="contacts" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-green-400">Наши контакты</h2>
+            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">Свяжитесь с нами по любым вопросам</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Discord</h3>
+                    <p class="text-gray-300 mb-4">Присоединяйтесь к нашему сообществу</p>
+                    <a href="https://discord.gg/JPNATqMdyf" class="text-green-400 hover:text-green-300 font-medium">Don`t created!</a>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Telegram</h3>
+                    <p class="text-gray-300 mb-4">Новости, чат и анонсы</p>
+                    <a href="https://t.me/RightHorizon_Music" class="text-green-400 hover:text-green-300 font-medium">t.me/RightHorizon_Music</a>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-green-500 text-5xl mb-6">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Email</h3>
+                    <p class="text-gray-300 mb-4">Для деловых предложений</p>
+                    <a href="mailto:support@mountain-craft.ru" class="text-green-400 hover:text-green-300 font-medium">support@righthorizon.online</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- это нижняя хуйня, права защищены, кто спиздит это тот уебище -->
+    <footer class="bg-gray-800 py-10">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>© 2025 RightHorizon. Все права защищены.</p>
+            <p class="mt-2">Создателем является - <a href="devbx3d.online" class="text-green-400 hover:text-green-300 underline font-bold">DevBX3D Studio</a>
+            <p class="mt-2">Сайт пока в альфа режиме и ничего еще нету, ждите обновлений. Версия сайта Alpha-0.1693</p>
+            <p class="mt-2">Старые версии моих сайтов -> <a href="0.0412/index.html" class="text-green-400 hover:text-green-300 underline font-bold">RH_Alpha-0.0412</a> - <a href="0.0018/index.html" class="text-green-400 hover:text-green-300 underline font-bold">RH_Alpha-0.0018</a></p>
+        </div>
+    </footer>
+    
+<!-- этот блядь скрипт пол сайта убивает, уебище -->
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('IP-адрес скопирован в буфер обмена: ' + text);
+            }, function(err) {
+                console.error('Не удалось скопировать текст: ', err);
+            });
+        }
+        
+        // Enhanced smooth scrolling for all scroll operations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        smoothScrollTo(target);
+                    }
+                });
+            });
+            
+            // Handle programmatic scrolls like the join button
+            window.smoothScrollTo = function(target) {
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 800; // milliseconds
+                let startTime = null;
+                
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+                
+                // Easing function for smooth acceleration/deceleration
+                function easeInOutQuad(t, b, c, d) {
+                    t /= d/2;
+                    if (t < 1) return c/2*t*t + b;
+                    t--;
+                    return -c/2 * (t*(t-2) - 1) + b;
+                }
+                
+                requestAnimationFrame(animation);
+            };
+            
+            // Update the join button to use our new smooth scroll
+            const joinBtn = document.getElementById('join-btn');
+            if (joinBtn) {
+                joinBtn.onclick = function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector('.section-divider');
+                    if (target) {
+                        smoothScrollTo(target);
+                    }
+                };
+            }
+        });
+    </script>
+
+</body>
+</html>

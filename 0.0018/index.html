@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="assets/images/imagesmall.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightHorizon - Твой Лучший Майнкрафт Сервер</title>
+    <style>
+       body {
+           background: linear-gradient(90deg, #8a8a8a, #b6b5b5, #707070 );
+    min-height: 3000px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-size: fill;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    }
+       
+        .navbar {
+            font-weight: bold;
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: linear-gradient(45deg, #8383836c, #4d4d4d80, #504d4d80); 
+            padding: 10px;
+            z-index: 10;
+            border-bottom: #494848
+
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease; 
+            border: 2px solid transparent;
+            border-radius: 5px; 
+        }
+
+        .navbar a:hover {
+            color: rgb(0, 0, 0);
+            background-color: white;
+            border-color: #5f5f5f;
+        }
+
+        .small-navbar {
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: fixed;
+            justify-content: space-around;
+            align-items: center;
+            background: linear-gradient(45deg, #8383836c, #4d4d4d80, #504d4d80);
+        }
+        
+        .small-navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease; 
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+
+        .small-navbar a:hover {
+            color: rgb(0, 0, 0);
+            background-color: white;
+            border-color: #5f5f5f;
+        }
+        
+        .hero-section {
+            background-color: #ffffff;
+            width: 100%;
+            min-height: 600px;
+            background-image: url('assets/images/background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+            z-index: 1;
+}
+
+        .hero-section img {
+            width: 550px;
+            height: auto;
+            max-width: 100%;
+}
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(99, 99, 99, 0.5);
+            z-index: -1;
+}
+
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+
+        .hero-section p {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .content {
+            padding: 20px;
+            margin-top: 80px;
+            margin-bottom: 80px ;
+        }
+
+        .section {
+            margin: 50px 0;
+        }
+
+        .section-right {
+            text-align: right;
+        }
+
+        .dark-section {
+            background-color: #333333;
+            color: rgb(255, 255, 255);
+            padding: 4%;
+        }
+
+        .dark-section p {
+            margin: 10px 0;
+        }
+
+        .white-box {
+            width: calc(100% - 60px); /* Оставляем по 30px слева и справа */
+            max-width: px; /* Ограничиваем максимальную ширину */
+            margin: 20px auto; /* Центрируем */
+            background: linear-gradient(45deg, #afaeae, #ffffff, #9b9b9b);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-right: #333333 solid 5px;
+            border-width: #333333 solid 5px;
+            max-width: 60%;
+        }
+
+        .title-box {
+            background: black;
+            color: white;
+            display: inline-block; /* Чтобы ширина зависела от текста */
+            padding: 10px 20px;
+            border-radius: 15px;
+            background: black;
+            position: relative;
+            top: -10px;
+        }
+
+        .title-box-v2 {
+            background: linear-gradient(-70deg, #808080, #6e6d6d, #a0a0a0);
+            color: white;
+            display: inline-block; /* Чтобы ширина зависела от текста */
+            padding: 10px 20px;
+            border-radius: 15px;
+            margin-top: -5px;
+        }
+
+        .content-container {
+    display: flex; /* Размещаем текст и картинку в строку */
+    align-items: center; /* Выравниваем элементы по центру */
+    justify-content: space-between; /* Раздвигаем текст и картинку */
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 900px; /* Чтобы блок не был слишком широким */
+    margin: 0 auto; /* Центрируем */
+    position: relative; /* Фиксим возможные проблемы с позиционированием */
+    overflow: hidden; /* Если что-то вылезет — скроет */
+}
+
+.text-section {
+    max-width: 60%; /* Ограничиваем ширину текста */
+}
+
+.custom-image {
+    max-width: 30%; /* Ограничиваем размер картинки */
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 10px;
+}
+
+.elytra-container {
+    position: absolute;
+    right: -40px; /* Смещение за белый блок */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.elytra-img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.textpodlogo {
+    color: #ffffff;
+    font-style: initial;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 23px;
+    text-align: center;
+    width: calc(100% - 60px); /* Оставляем по 30px слева и справа */
+    max-width: px; /* Ограничиваем максимальную ширину */
+    margin: 20px auto; /* Центрируем */
+    background: linear-gradient(45deg, #008cff, #5fb7ff, #0073d1);
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-right: #333333 solid 5px;
+    border-width: #333333 solid 52px;
+    max-width: 20%;
+}
+
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="pages/donation.html">Донаты</a>
+        <a href="pages/rules.html">Правила</a>
+        <a href="pages/help.html">Поддержка</a>
+        <a href="pages/download.html">Скачать</a>
+    </div>
+    <div class="small-navbar">
+        <a href="index.html">RH</a>
+    </div>  
+    <div class="hero-section">
+            <img id="TextLogo" src="assets/images/righthorizon.png" alt="Мой сервер">
+            <text class="textpodlogo"><b>Твой Лучший Майнкрафт Сервер</b>
+    </div>
+    <div class="white-box">
+        <h1 class="title-box">Почему иммено наш сервер?</h1>
+        <h3 class="title-box-v2">Мы предлагаем Вам самый лучший игровой процесс, а также перемещение в более старое время.
+        <p>Мы рады Всем новым игрокам на нашем сервере.</p>
+        <p>И мы стараемся сделать всё для того чтобы Вам было конфортно играть.</p>
+        <div class="elytra-container">
+            <img class="elytra-img" src="assets/images/elytra-uz.png" alt="я на элитрах ёй">
+        </div>
+    </div>
+    <div class="dark-section">
+        <h2>RightHorizon</h2>
+        <p>2025 - Developer: uzalex</p>
+    </div>
+</body>
+</html>

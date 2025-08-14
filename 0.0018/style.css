@@ -1,0 +1,83 @@
+@font-face {
+    font-family: "BatmanForever";
+    src: url("fonts/batmanforeveralternatecyr.woff2") format("woff2"),
+         url("fonts/batmanforeveralternatecyr.ttf") format("truetype");
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    background-image: url('assets/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Минимальная высота страницы - 100% высоты экрана */
+}
+
+#background {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* 50% от верхней границы родителя (или экрана) */
+    left: 50%; /* 50% от левой границы родителя (или экрана) */
+    transform: translate(-50%, -50%); /* Центрирует изображение */
+}
+
+.content {
+    background: #f4f4f4; /* Светлый фон, чтобы выделить блок */
+    padding: 50px; /* Внутренние отступы для красоты */
+    gn: center;
+}
+
+.hero-section img {
+    width: 200px; /* Укажи нужный размер */
+    height: auto;
+    max-width: 100%; /* Чтобы не выходило за пределы экрана */
+}
+
+.dark-section {
+    background-color: rgba(0, 0, 0, 0.6); /* Затемненный эффект */
+    color: white;
+    padding: 40px;
+    border-radius: 15px; /* Закругленные углы */
+    max-width: 80%; /* Чтобы не растягивалось */
+    margin: auto; /* Центрируем */
+}
+
+.white-section {
+    background-color: white;
+    color: black;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 80%;
+    margin: auto;
+}
+
+.dark-section {
+    margin-top: auto;
+}
+
+/* Контейнер навбара - выравнивание вправо */
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Двигаем элементы вправо */
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Обычные ссылки в навбаре */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+/* Убираем анимацию при наведении */
+.navbar a:hover {
+    background: none !important;
+}
+
+/* Эффект свечения для активной страницы */
+.navbar a.active {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+

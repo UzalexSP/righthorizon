@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/png" href="assets/images/rhsmall.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RightHorizon - Сервер для лучших игроков!</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at 70% 20%, #131313 0%, #292929 60%, #3b3b3b 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Декоративные круги */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.35;
+            z-index: 0;
+        }
+        .bg-circle1 {
+            width: 400px; height: 400px;
+            background: #ffe9e1;
+            top: -120px; left: -120px;
+        }
+        .bg-circle2 {
+            width: 300px; height: 300px;
+            background: #777777;
+            bottom: 60px; right: -100px;
+        }
+        .bg-circle3 {
+            width: 180px; height: 180px;
+            background: #ffecd2;
+            top: 60%; left: 10%;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 36px 0 18px 24px; /* добавлен отступ слева */
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+            height: 80px;
+        }
+        header a img {
+            display: block;
+            margin-bottom: 0;
+            margin-right: 36px;
+            max-height: 38px;
+        }
+        nav {
+            margin: 0;
+            text-align: left;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+        }
+        header h1 {
+            font-size: 3.2rem;
+            letter-spacing: 2px;
+            margin: 0;
+            background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 32px rgba(252,182,159,0.15);
+            animation: glow 2.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 4px 32px rgba(252,182,159,0.15);}
+            to { text-shadow: 0 0px 64px #ffddd2;}
+        }
+        nav {
+            margin: 36px 0 0 0;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            padding: 38px 0 -90px 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.2s;
+        }
+        nav a:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2.5px;
+            background: #ffd0c1;
+            transition: width .3s;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            border-radius: 2px;
+        }
+        nav a:hover {
+            color: #ffd7c9;
+        }
+        nav a:hover:after {
+            width: 100%;
+        }
+        .full-block {
+            background: rgba(34,34,34,0.95);
+            border-radius: 18px 18px 18px 18px;
+            margin: 48px auto 0 auto;
+            padding: 48px 36px 48px 36px;
+            max-width: 950px;
+            box-shadow: 0 6px 32px rgba(44,44,44,0.18);
+            text-align: center;
+            min-height: unset;
+            display: block;
+            position: relative;
+            z-index: 1;
+            position: static !important;
+            pointer-events: auto;
+            opacity: 1;
+        }
+        body:not(.scrolled) .full-block {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            margin: 0;
+            border-radius: 0;
+            max-width: none;
+            width: 100vw;
+            height: 100vh;
+            min-height: 100vh;
+            box-shadow: none;
+        }
+
+        .full-block h1 {
+            color: #ffecd2;
+            font-size: 2.2rem;
+            margin-bottom: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .full-block p {
+            color: #e0e0e0;
+            font-size: 1.08rem;
+            margin: 0 0 16px 0;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+
+        footer {
+            margin: 54px 0 0 0;
+            text-align: center;
+            background-color: #131313;
+            padding: 36px 0 14px 0;
+            color: #ffffff;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            z-index: 2;
+            position: relative;
+            pointer-events: none;
+            user-select: none;
+        }
+        /* Responsive */
+        @media (max-width: 700px) {
+            .container {
+                padding: 18px 6px 18px 6px;
+            }
+            header h1 {
+                font-size: 2.1rem;
+            }
+            .container h2 {
+                font-size: 1.3rem;
+            }
+        }
+        @media (max-width: 500px) {
+            .card-grid {
+                gap: 18px;
+            }
+            .card {
+                padding: 20px 8px 18px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-circle bg-circle1"></div>
+    <div class="bg-circle bg-circle2"></div>
+    <div class="bg-circle bg-circle3"></div>
+    <header>
+        <a href="/"><img src="assets\images\righthorizon.png" alt="RightHorizon" style="margin-bottom: 12px;"></a>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">О нас</a>
+            <a href="#">Проекты</a>
+            <a href="#">Контакты</a>
+        </nav>
+    </header>
+    <div class="full-block">
+        <h1>Ой!</h1>
+        <h3>Вышла какая-то неизвестная ошибка</h3>
+        <h3>Данная ссылка возможно недействительна либо удалена</h3>
+        
+        <h2>Приносим свои извинения за это :></h2>
+    <footer>
+        &copy; 2025 RightHorizon.
+        <p>Создателем является - uzalex</p>
+        <p>Сайт пока в альфа режиме и ничего еще нету, ждите обновлений. Версия сайта Alpha-0.0412</p>
+    </footer>
+</body>
+</html>
