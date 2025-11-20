@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="ru">RightHorizon - Мир среди вершин</title>
+    <title data-lang="uk" style="display:none;">RightHorizon - Світ серед вершин</title>
+    <title data-lang="en" style="display:none;">RightHorizon - World Among the Peaks</title>
+<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/theme/fon2.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            transition: all 0.5s ease;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-down-arrow {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(to bottom, #1a202c, transparent);
+        }
+        
+        .section-divider-bottom {
+            height: 100px;
+            background: linear-gradient(to top, #1a202c, transparent);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- навбар -->
+    <nav class="fixed w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition flex items-center">
+                <i class="fas fa-mountain mr-2"></i>RIGHTHORIZON
+            </a>
+            
+            <!-- десктоп меню -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="404.html" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="donate">Донат</a>
+                <a href="rules.html" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="rules">Правила</a>
+                <a href="cases.html" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="cases">Кейсы</a>
+                <a href="#contacts" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="contacts">Контакты</a>
+                <!-- лангуаге селектор бля -->
+                <select id="language-selector" class="font-bold bg-gray-800 text-white border-2 border-blue-700 rounded px-2 py-1 text-sm ml-4">
+                    <option value="ru" class="font-bold">RU</option>
+                    <option value="uk" selected class="font-bold">UA</option>
+                    <option value="en" class="font-bold">EN</option>
+                </select>
+            </div>
+            
+            <!-- ну там для телефона выбор, ок -->
+            <div class="md:hidden flex items-center space-x-2">
+                <button id="mobile-menu-button" class="text-blue-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-gray-800 border-t border-gray-700 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="404.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="donate">Донат</a>
+                <a href="404.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="rules">Правила</a>
+                <a href="cases.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="cases">Кейсы</a>
+                <a href="#contacts" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="contacts">Контакты</a>
+                <!-- Mobile Language Selector -->
+                <div class="px-3 py-2">
+                    <select id="mobile-language-selector" class="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 text-sm w-full">
+                        <option value="ru" class="font-bold">Русский</option>
+                        <option value="uk" selected class="font-bold">Українська</option>
+                        <option value="en" class="font-bold">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+</nav>
+    <!-- главный экран, начальные строчки -->
+    <section class="hero-section flex flex-col justify-center items-center relative">
+        <div class="text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg" data-lang-key="hero_title">RIGHTHORIZON</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto drop-shadow-md" data-lang-key="hero_subtitle">
+                Правила до режима анархия. Добавлено 20.11.25
+            </p>
+            <p class="text-3xl md:text-3xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md" data-lang-key="server_unavailable">[СЕРВЕР НЕДОСТУПЕН!]</p>
+            <button id="join-btn" onclick="document.querySelector('.section-divider').scrollIntoView({behavior: 'smooth', block: 'start'})" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105" data-lang-key="join_button">Присоединиться</button>
+        </div>
+<div class="absolute bottom-10 scroll-down-arrow">
+            <i class="fas fa-chevron-down text-3xl text-white animate-bounce"></i>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- по просьбе моего разраба, хуй знает зачем это -->
+    <div class="pt-20"></div>
+    <!-- правила анархии -->
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-4" data-lang-key="rules_all">Общие правила</h1>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_1">Незнание правил не освобождает нарушителя от ответственности, а также может усугубить наказание.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule1">1. Запрещено использование читов, модификаций и любых сторонних программ/обходов, дающих преимущество в игре.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule2">1.1. Правила могут быть изменены без уведомления участников сервера, если их измена была в небольшом количестве. При значительных изменах правил администрация должна оповестить об изменений аудитории.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule3">1.2. Проект/Сервер RightHorizon был создан на таких доменах как: righthorizon.online, либо в крайнем случае на devbx3d.online. Если такое случиться, администратор обязан оповестить об изменение домена аудитории.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule4">1.3. Основателем проекта является Uzalex_, и его решения и действия могут не обсуждаться и не поддаваться разжалованию. Владелец проекта и его администраторы вправе выдать наказание вне рамок данных правил.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule5">1.4. Администрация проекта не выдает назад ресурсы/компенсации при выключении/перезагрузке/сбое/лагов/действия игроков использующие читы и запрещеное ПО на сервере.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule6">1.5. Запрещено взлом, попытки взломов, продажа/обмен/передача любых аккаунтов на сервере, распространение данных игроков/сервера, вред серверу, покупки аккаунтов/донатов/ключей в обход официального сайта (righthorizon.online) | Наказание: перманентный бан без возможности разбана и т.д. [Так же это правило относиться до пункта 1.5.1]</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule7">1.5.1. Соучастие, содействие, совместная игра с нарушителями так же попадают под правило 1.5. Аккаунты с которых был нанесен серьезный вред проекту - не подлежат восстановлению, даже если аккаунт был в тот момент взломан или добровольно передан либо же продан. Ответственность несет сам ВЛАДЕЛЕЦ аккаунта, НЕЗАВИСИМО от того, кто совершал действия под данным аккаунтом.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule8">1.6. Запрещены любые угрозы которые могут задеть игрока (Такие как: Докс, Сват, Оск родни, Слив фотографий/видео/переписок, угроза действиями/расправами которые могут повредить/закончить жизнь человека, взломы соц. сетей, преследование игроков вне сервера и т.д.) | Наказание: от пер. мута до бана на 90 дней.</p> 
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule9">1.7. Запрещено использование багов/глитчей/лаунчеров/модов/прочего ПО, которые дают преимущество в игре или нарушают игровой процесс других игроков. (Если вы нашли баг/глитч - сообщите администрации сервера в дискорд или телеграмм (Возможна награда за находку бага)).</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule10">1.8. Запрещена любая реклама независимо какого формата (Входят: реклама чужих проектов, сайтов, дискорд серверов, соц. сетей) без обговора с Владельцем проекта. | Наказание: Бан от 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule11">1.9. Запрещено писать в чат/другие системы общения любую символику/политику/темы 18+ | Наказание: мут от 30 минут до перманентного мута + бана до 7 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule12">1.10. НЕ ЗАПРЕЩАЕТСЯ: Писать в чат/другие системы общения на русском языке, можно писать маты но в меру</p>
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-9" data-lang-key="rules_register">Правила регистрации</h1>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_reg1">2.1. Запрещено создавать аккаунты с никнеймом нецензурной лексикой, оскорблениями, призывами к насилию, расовой/религиозной/политической/гендерной дискриминации и т.д. | Наказание: удаление аккаунта без возможности восстановления и занесения в черный список.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_reg2">2.2. Запрещено создавать аккаунты, выдавая себя за других игроков, администраторов или известных личностей. | Наказание: удаление аккаунта без возможности восстановления и занесения в черный список.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_reg3">2.3. Запрещено создавать аккаунты с целью обхода блокировок (В международии: твинки), наказаний или ограничений, наложенных на другие аккаунты. | Наказание: удаление аккаунта без возможности восстановления и занесения в черный список.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_reg4">2.4. Запрещено создавать аккаунты с использованием автоматизированных систем, ботов или скриптов для массовой регистрации. | Наказание: удаление аккаунта/аккаунтов без возможности восстановления и занесения в черный список.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_reg5">2.5. Запрещено создавать аккаунты с целью мошенничества, обмана или нарушения прав других игроков. | Наказание: удаление аккаунта без возможности восстановления и занесения в черный список.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_reg6">2.6. Никнейм, не носящий определённого смысла, или же являющийся набором символов/цифр - от 8 символов (исключение – аккаунты, на которых приобретена платная услуга)</p>
+        <p class="text-center text-gray-300 text-lg mb-24" data-lang-key="rule_reg7">2.6.1 Никнейм, содержащий названия запрещенных ПО, и никнейм оскорбляющий никнейм другого игрока.</p>
+        <p class="text-center text-gray-300 text-lg mb-24" data-lang-key="rule_reg8">2.7. При покупке платных дополнительных возможностей Такие как: донат, кейсы, хоризонов, квитанцию оплаты необходимо сохранить. (если подключена система оплат, то чек, который генерируется после покупки товара)</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_reg9">2.8. Если вдруг Вы потеряли доступ к аккаунту (забыли пароль, либо другая причина). Обратитесь к поддержке сервера, открыв тикет в дискорде / написав в пункт "Помощь" в телеграмме</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_reg10">2.8.1 Безопасность аккаунта не гарантируется проектом, процедура по обеспечению безопасности полностью лежит на плечах игрока, и в случае утери аккаунта, администрация в праве отказать в восстановлении аккаунта, а также может полностью обнулить аккаунт и заблокировать если с аккаунта нанесли серьезный вред проекту и его интеллектуальным правам.</p>
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-9" data-lang-key="rules_don">Покупка внутриигровых возможностей</h1>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_buy1">3.1. При покупке внутриигровых возможностей (донат, кейсы, хоризоны и т.д.) - игрок соглашается с тем, что администрация проекта не несет ответственности за сохранность и работоспособность приобретенных возможностей в случае технических сбоев, ошибок или изменений в игровом процессе.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_buy2">3.2. Администрация проекта оставляет за собой право изменять, приостанавливать или прекращать предоставление внутриигровых возможностей без предварительного уведомления игроков.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_buy3">3.3. В случае обнаружения мошенничества, обмана или нарушения правил проекта при покупке внутриигровых возможностей, администрация оставляет за собой право аннулировать приобретенные возможности и принять соответствующие меры в отношении нарушителя.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_buy4">3.4. Игра на проекте не подразумевает платы за использование ресурсов на проекте RightHorizon</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_buy5">3.5. Игрок вправе добровольно оплатить определённую сумму проекту за внутриигровую услугу в одностороннем порядке.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_buy6">3.6. Возврата средств за покупки не имеется, так как RightHorizon не является коммерческой организацией и все покупки являются просто добровольным пожертвованием на развитие/поддержку сервера.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_buy7">3.7. Покупка внутриигровых возможностей не даёт привилегии на игнорирование/нарушение всех перечисленных и новых правил проекта.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_buy8">3.8. Запрещено обман/введение в заблуждения продавца/предоставлять поддельную квитанцию продавцу чтобы получить внутриигровую возможность | Наказание: Чёрный список в соц. сети, так же отказ принятие покупки в следующий раз.</p>
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-9" data-lang-key="rules_dogovor">Правила договора покупки внутриигровой возможности</h1>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_dog1">4.1. Приобретая внутриигровую возможность, игрок соглашается с тем, что администрация проекта не несет ответственности за сохранность и работоспособность приобретенных возможностей в случае технических сбоев, ошибок или изменений в игровом процессе.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_dog2">4.2. Официальный никнейм продавца в телеграмме - <a href="https://t.me/LastGrossMB" class="text-center text-white-900 text-lg mb-6">LastGrossMB</a> [Кликабельное] (Другие лица, выдающие себя за продавца - мошенники)</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_dog3">4.3. Обращаться к покупке нужно адекватно. Пример сообщения: (Приветствие) (Как я могу к Вам обращаться) (Цель нашего диалога) (Товар который желаете приобрести) (Игровой никнейм который зарегистрирован на сервере)</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_dog4">4.3.1 Целое примерное сообщение: Привет! Можешь обращаться ко мне как Алексей, Хочу приобрести себе донат horizon и своему другу мега донат кейс, Мой никнейм на сервере Uzalex_ а ник друга DevBX3D</p>
+        <P class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_dog4_1">4.3.2 Дальше следуйте диалогу, и выполняйте все условия, так же Продавец может попросить у Вас квитанцию оплаты если продавец не видит приход Вашей оплаты, так же выдача внутриигровых возможностей может задержаться от 30 минут до 12 часов (зависимости от ситуации)</P>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_dog5">4.4. Запрещено оскорблять/угрожать/пытаться обмануть продавца при общении | Наказание: Чёрный список в соц. сети, так же отказ принятие покупки в следующий раз.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_dog6">4.5. В случае возникновения спорной ситуации, игрок соглашается с тем, что администрация проекта оставляет за собой право принимать решения в отношении спорных ситуаций, включая аннулирование приобретенных возможностей и принятие соответствующих мер в отношении нарушителя.</p>
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-9" data-lang-key="rules_chat">Внутриигровое общение</h1>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat0">5.0. Правила из этого списка работают ещё в соц. сетях проекта RightHorizon, таких как: дискорд сервер, телеграмм канал и чат телеграмм канала.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat1">5.1. Запрещено использование оскорбительной, ненавистнической, расистской, сексистской или иной дискриминационной лексики в чате или других системах общения на сервере. | Наказание: мут от 30 минут до перманентного мута + бана до 7 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat2">5.2. Запрещено спамить, флудить, использовать капс или повторяющиеся символы в чате или других системах общения на сервере. | Наказание: мут от 10 минут до 60 минут.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat3">5.3. Запрещено разглашать личную информацию других игроков без их согласия в чате или других системах общения на сервере. | Наказание: мут от 60 минут до перманентного мута + бана до 90 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat4">5.4. Запрещено использование чата или других систем общения на сервере для рекламы, продвижения или продажи товаров или услуг без предварительного согласия администрации сервера. | Наказание: бан от 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat5">5.5. Запрещено использовать объявления для обхода наказания за флуд (использовать 2 /bc и сообщение в глобал, или наоборот, 2 сообщения и 1 /bc) | Наказание: мут от 60 минут до перманентного мута + бана до 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat6">5.6. Запрещено флудить символами, т.е. использовать комбинации бессмысленных символов, по типу "??????????", или же смеха. | Наказание: Мут от 30 минут, до 12 часов</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat7">5.7. Запрещено оскорбление чужой родни и своей родни | Наказание: Бан до 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat8">5.8. Запрещено упоминание сторонних проектов ресурсов, групп, соцсетей и подобного. | Наказание: мут 1 день. (Обход: мут 3 дня)</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_chat9">5.9. Выдача себя за администрацию проекта. | Наказание: Бан 3 дня.</p>
+        <p class="text-center text-gray-300 text-lg mb-9" data-lang-key="rule_chat10">5.10. Провокация игроков на нарушение правил. | Наказание: Мут 6 дней.</p>
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-9" data-lang-key="rules_cheats">Запрет на использования другого ПО которое дает нелегальное преимущество над игроками/сервером</h1>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft1">6.1. Запрещено использование любого стороннего ПО, модификаций, скриптов или читов, которые предоставляют игроку преимущество в игре или нарушают игровой процесс других игроков на сервере. | Наказание: Бан 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft1_1">6.1.1. Совместная игра с игроком, нарушивший пункт 6.1 | Наказание: Бан до 27 дней</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft2">6.2. Запрещено использование программ для автоматизации игровых действий, таких как боты, макросы или скрипты, которые выполняют действия от имени игрока без его непосредственного участия. | Наказание: Бан 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft3">6.3. Запрещено использование программ для изменения игровых файлов, памяти или сетевого трафика с целью получения преимущества в игре или обхода защитных механизмов сервера. | Наказание: Бан 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft4">6.4. Запрещено использование программ для скрытия или изменения идентификационной информации игрока, такой как IP-адрес, MAC-адрес или уникальные идентификаторы устройств, с целью обхода блокировок или ограничений на сервере. | Наказание: Перманентный бан.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft5">6.5. Запрещено распространение, продажа или обмен стороннего ПО, модификаций, скриптов или читов, которые нарушают правила сервера или предоставляют игрокам преимущество в игре. | Наказание: Перманентный бан.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft6">6.6.Нарушение любых из вышеуказанных правил может привести к временной или перманентной блокировке аккаунта нарушителя, а также к другим мерам, которые администрация сервера сочтет необходимыми для обеспечения справедливой и безопасной игровой среды для всех игроков.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft7">6.7. Запрещено хранение читов у себя на устройстве | Наказание: Бан до 14 дней</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft8">6.8. Обход блокировки аккаунта. Считается вход с любого аккаунта, после уже имеющиеся блокировки. Любые попытки обойти правило 6.7 будут квалифицироваться как обход бана.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft9">6.9. Запрещено хранить у себя .bat (батники) на очистку, а так же использовать их| Наказание: Бан до 30 дней</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft10">6.10. Использование виртуальных машин/другого компьютера при проверке, различные манипуляции с обязательными программами для проверки, доступом к локальным дискам (ничего из этого не открывается, пишет администратор ограничил доступ, просит пин код, родительский контроль, и.т.д) | Наказание: Бан от 30 дней</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_soft11">6.11. Неадекватное поведение на проверке. Сюда относятся различные фейк папки с названиями читов, шутки рофлы в сторону администрации, попытка выпросить разбан или что бы не банили, вопросы не по теме проверки. | Наказание: Бан 30 дней</p>
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-9" data-lang-key="rules_rules">Игра на проекте и т.д.</h1>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game1">7.1. Игроки обязаны соблюдать правила сервера и уважать других игроков, а также следовать указаниям администрации сервера.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game2">7.2. Администрация сервера оставляет за собой право принимать меры против игроков, нарушающих правила сервера, включая временную или перманентную блокировку аккаунта нарушителя.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game3">7.3. Запрещено причинение вреда проекту: заливы, лаг-машины, багоюз, дюпы. | Наказание: снос постройки + перманент бан</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game4">7.4. Запрещено использование и распространение дюпов | Наказание: Бан 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game5">7.5. Флуд командами. Например, /pay Uzalex_ 1 (Более 10 раз) | Наказание: Сначал кик, а потом бан 7 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game6">7.6. Некорректный текст, нарушающий правила чата на табличках, регионах, книгах. | Наказание: Бан от 5 до 30 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game7">7.7. Запрещено подавать жалобу на высшую администрацию с оскорблениями. | Наказание: Бан от 3 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game8">7.8. Жалоба в которой оскорбление высшей администрации. | Наказание: Бан от 6 дней.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game9">7.9. Запрещена все типы рекламы, продажа, распространение читов, магазинов, дискорд каналов, групп которые связаны с продажей, взломом, обменом ресурсов. | Наказание: Перманентный бан.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_game10">7.10. Создание кланов с нарушением правил чата (оскорбления, аморальное содержание, политический контекст, пропаганда чего-либо). | Наказание: Снос клана, + блокировка аккаунта основателю клана на 5-8 дней.</p>
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-9" data-lang-key="rules_mod">Права модерации и проверка на читы и другое ПО</h1>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_mod1">8.1. Администрация сервера имеет право проводить проверки игроков на наличие читов, модификаций или другого стороннего ПО, которое нарушает правила сервера.</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_mod2">8.2. Проверка проходит через программу AnyDesk, при вызывании игрока на проверку подозрительного ПО, игрок должен в течении 3-х минут предоставить ID своего AnyDesk и принять подключение Администратора на проверку.</p>
+        <p class="text-center text-gray-300 text-lg mb-9" data-lang-key="rule_mod3">8.3. Проверка проводиться исключительно на том устройстве, где вы играете (То есть Компьютер, телефон, ноутбук и т.д.)</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_mod4">8.4. Если Вас проверяет Основатель/Доверенные лица/Зам. Основателя, он имеет право кидать вам только ССЫЛКУ на официальный источник какой-то программы, либо Вы можете скачать её самостоятельно с офиц. источника, таких как GitHub</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_mod5">8.5. После подключения администратора, дайте доступ к мышке, клавиатуре, и экрану Вашего устройства</p>
+        <p class="text-center text-gray-300 text-lg mb-6" data-lang-key="rule_mod6">8.3. ПРОСИМ ВСЕХ! При проверке врубить запись экрана программами (OBS, Bandicam, либо же HeadCam) и если Вы видите то что администратор зашёл в консоль/PowerShell то немедленно прерывайте связь и бегите писать в форум, предоставляя данную запись.</p>
+
+
+<!-- это короче чтобы айпи копировать да -->
+    <section class="py-20 bg-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/theme/lec2.png" 
+                 alt="лесной фон" 
+                 class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6 text-blue-400" data-lang-key="ready_for_adventure">Готов к приключениям?</h2>
+                <p class="text-xl mb-10 text-gray-300" data-lang-key="join_community">Присоединяйся к нашему сообществу исследователей и строителей. Начни свое путешествие среди величественных гор уже сегодня!</p>
+                
+                <div class="bg-gray-900 rounded-xl p-8 inline-block w-full">
+                    <div class="text-left mb-6">
+                        <h3 class="text-2xl font-bold mb-2 text-blue-400" data-lang-key="server_ip">IP-адрес сервера:</h3>
+                        <div class="bg-gray-800 p-4 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <code class="text-xl break-all">play.righthorizon.online</code>
+                            <button id="copy-btn" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 w-full sm:w-auto" onclick="copyToClipboard('play.righthorizon.online')" data-lang-key="copy">
+                                Копировать
+                            </button>
+                        </div>
+                    </div>
+<p class="text-xl md:text-xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md" data-lang-key="server_not">[СЕРВЕР НЕДОСТУПЕН!]</p>
+                    <div class="flex flex-wrap justify-center gap-4 mt-8">
+                        <a href="https://discord.gg/JPNATqMdyf" class="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-discord mr-2"></i> Discord
+                        </a>
+                        <a href="https://t.me/RightHorizon_Music" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-telegram mr-2"></i>Telegram
+                        </a>
+                        <a href="https://www.youtube.com/@UzalexDR" class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-youtube mr-2"></i> YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+</div>
+    </section>
+    
+    <div class="section-divider-bottom"></div>
+    <!-- связь с нами бобиками -->
+    <section id="contacts" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-blue-400" data-lang-key="our_contacts">Наши контакты</h2>
+            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto" data-lang-key="contact_us_any_questions">Свяжитесь с нами по любым вопросам</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-blue-500 text-5xl mb-6">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Discord</h3>
+                    <p class="text-gray-300 mb-4" data-lang-key="join_community_discord">Присоединяйтесь к нашему сообществу</p>
+                    <a href="https://discord.gg/JPNATqMdyf" class="text-blue-400 hover:text-blue-300 font-medium">Don`t created!</a>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-blue-500 text-5xl mb-6">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Telegram</h3>
+                    <p class="text-gray-300 mb-4" data-lang-key="news_chat_announcements">Новости, чат и анонсы</p>
+                    <a href="https://t.me/RightHorizon_Music" class="text-blue-400 hover:text-blue-300 font-medium">t.me/RightHorizon_Music</a>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                    <div class="text-blue-500 text-5xl mb-6">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Email</h3>
+                    <p class="text-gray-300 mb-4" data-lang-key="business_proposals">Для деловых предложений</p>
+                    <a href="mailto:support@mountain-craft.ru" class="text-blue-400 hover:text-blue-300 font-medium">support@righthorizon.online</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- это нижняя хуйня, права защищены, кто спиздит это тот уебище -->
+    <footer class="bg-gray-800 py-10">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p data-lang-key="copyright">© 2025 RightHorizon. Все права защищены.</p>
+            <p class="mt-2" data-lang-key="created_by">Создателем является - <a href="devbx3d.online" class="text-blue-400 hover:text-blue-300 underline font-bold">DevBX3D Studio</a>
+            <p class="mt-2" data-lang-key="site_alpha_mode">Сайт пока в альфа режиме и ничего еще нету, ждите обновлений. Версия сайта Alpha-0.1693</p>
+            <p class="mt-2" data-lang-key="old_site_versions">Старые версии моих сайтов -> <a href="0.0412/index.html" class="text-blue-400 hover:text-blue-300 underline font-bold">RH_Alpha-0.0412</a> - <a href="0.0018/index.html" class="text-blue-400 hover:text-blue-300 underline font-bold">RH_Alpha-0.0018</a></p>
+        </div>
+    </footer>
+<script src="random.js"></script>
+</body>
+</html>
