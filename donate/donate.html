@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightHorizon — Магазин доната</title>
+
+    <!-- Tailwind + FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('theme/fon1.png');
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            transition: background-position 0.5s ease, background-size 0.5s ease;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+<!-- =================== НАВБАР =================== -->
+<nav class="fixed w-full bg-gray-900/90 nav-blur z-50 border-b border-gray-800">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="index.html"
+           class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition flex items-center">
+            <i class="fas fa-mountain mr-2"></i>RIGHTHORIZON
+        </a>
+
+        <!-- desktop -->
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="donate.html"
+               class="text-blue-400 font-semibold border-b-2 border-blue-400 pb-1"
+               data-lang-key="nav_donate">Донат</a>
+            <a href="rules.html"
+               class="text-gray-300 hover:text-blue-400 transition"
+               data-lang-key="nav_rules">Правила</a>
+            <a href="cases.html"
+               class="text-gray-300 hover:text-blue-400 transition"
+               data-lang-key="nav_cases">Кейсы</a>
+            <a href="index.html#contacts"
+               class="text-gray-300 hover:text-blue-400 transition"
+               data-lang-key="nav_contacts">Контакты</a>
+
+            <!-- флаги -->
+            <div class="flex gap-3 ml-4">
+            </div>
+            <select id="language-selector" class="font-bold bg-gray-800 text-white border-2 border-blue-700 rounded px-2 py-1 text-sm ml-4">
+                    <option value="ru" class="font-bold" data-set="ru" alt="RU">RU</option>
+                    <option value="uk" selected class="font-bold" data-set="uk" alt="UA">UA</option>
+                    <option value="en" class="font-bold" data-set="en" alt="EN">EN</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- mobile burger -->
+        <div class="md:hidden flex items-center space-x-3 ml-auto flex-shrink-0 whitespace-nowrap">
+            <div class="flex gap-2">
+            </div>
+
+            <button id="mobile-menu-button"
+                    class="text-blue-300 hover:text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobile-menu"
+         class="md:hidden bg-gray-800 border-t border-gray-700 hidden">
+        <div class="px-4 pt-2 pb-4 space-y-1">
+            <a href="donate.html"
+               class="block px-3 py-2 rounded-md text-base font-medium text-blue-400"
+               data-lang-key="nav_donate">Донат</a>
+            <a href="rules.html"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700"
+               data-lang-key="nav_rules">Правила</a>
+            <a href="cases.html"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700"
+               data-lang-key="nav_cases">Кейсы</a>
+            <a href="index.html#contacts"
+               class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700"
+               data-lang-key="nav_contacts">Контакты</a>
+        </div>
+    </div>
+</nav>
+
+<!-- =================== КОНТЕНТ МАГАЗИНА =================== -->
+<main class="pt-24 pb-16 min-h-screen">
+    <section class="py-10">
+        <div class="container mx-auto px-4">
+            <div class="mb-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-blue-400 mb-4"
+                    data-lang-key="shop_title">
+                    Магазин доната
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto"
+                   data-lang-key="shop_subtitle">
+                    Выбери привилегию, срок действия, добавь в корзину и оплати через Telegram.
+                </p>
+            </div>
+
+            <div class="grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(280px,1fr)]">
+                <!-- ЛЕВАЯ ЧАСТЬ: карточки -->
+                <div class="space-y-10">
+                    <!-- донаты -->
+                    <section>
+                        <h2 class="text-3xl font-bold text-blue-400 mb-2"
+                            data-lang-key="section_donates">
+                            Донат
+                        </h2>
+                        <p class="text-gray-400 mb-4 text-sm md:text-base"
+                           data-lang-key="section_donates_desc">
+                            Ранги и привилегии сервера.
+                        </p>
+                        <div id="donate-section"
+                             class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+                    </section>
+
+                    <!-- прочее -->
+                    <section>
+                        <h2 class="text-3xl text-2xl font-bold text-blue-400 mb-2"
+                            data-lang-key="section_other">
+                            Прочее
+                        </h2>
+                        <p class="text-gray-400 mb-4 text-sm md:text-base"
+                           data-lang-key="section_other_desc">
+                            Кейсы и внутриигровая валюта.
+                        </p>
+                        <div id="other-section"
+                             class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+                    </section>
+                </div>
+
+                <!-- ПРАВАЯ ЧАСТЬ: корзина -->
+                <aside class="bg-gray-800 border border-gray-700 rounded-xl p-5 shadow-xl h-fit lg:sticky lg:top-28">
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4"
+                        data-lang-key="cart_title">
+                        Корзина
+                    </h2>
+
+                    <p id="cart-empty"
+                       class="text-gray-400 text-sm mb-4"
+                       data-lang-key="cart_empty">
+                        Корзина пуста. Добавьте товар.
+                    </p>
+
+                    <ul id="cart-items" class="space-y-3 hidden"></ul>
+
+                    <div class="mt-6 border-t border-gray-700 pt-4 flex items-center justify-between">
+                        <span class="text-gray-300 font-semibold"
+                              data-lang-key="cart_total_label">
+                            Итого:
+                        </span>
+                        <span id="cart-total" class="text-2xl font-extrabold text-green-400">0₴</span>
+                    </div>
+
+                    <button id="pay-btn"
+                            class="mt-4 w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:</button>text-gray-400 disabled:cursor-not-allowed text-white font-semibold py-2 rounded-lg transition"
+                            disabled
+                            data-lang-key="cart_pay_btn">
+                        Оплатить
+                    </button>
+
+                    <p class="mt-3 text-xs text-gray-500" data-lang-key="payment">
+                        После оплаты указывайте никнейм и чек оплаты администратору.
+                    <p class="mt-1 text-xs text-gray-500" data-lang-key="commision">
+                        ВНИМАНИЕ! Комиссия при потребе банка/других лежит на покупателе, при недостаче средств Вам не будет выдано и вернуто Ваших денег назад, возможен обмен на другой товар из этого магазина.
+                    </p>
+                </aside>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- простой футер -->
+<footer class="bg-gray-800 py-10">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p data-lang-key="copyright">© 2025 RightHorizon. Все права защищены.</p>
+            <p class="mt-2" data-lang-key="created_by">Создателем является - <a href="devbx3d.online" class="text-blue-400 hover:text-blue-300 underline font-bold">DevBX3D Studio</a>
+            <p class="mt-2" data-lang-key="site_alpha_mode">Сайт пока в альфа режиме и ничего еще нету, ждите обновлений. Версия сайта Alpha-0.1693</p>
+    </footer>
+
+<!-- СКРИПТЫ -->
+<script defer src="lang.js"></script>
+<script defer src="shop.js"></script>
+</body>
+</html>
+</div>

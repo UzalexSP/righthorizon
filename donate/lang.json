@@ -1,0 +1,64 @@
+{
+  "ru": {
+    "nav_donate": "Донат",
+    "nav_rules": "Правила",
+    "nav_cases": "Кейсы",
+    "nav_contacts": "Контакты",
+
+    "shop_title": "Магазин доната",
+    "shop_subtitle": "Выбери привилегию, срок действия, добавь в корзину и оплати через Telegram.",
+
+    "section_donates": "Донат",
+    "section_donates_desc": "Ранги и привилегии сервера.",
+
+    "section_other": "Прочее",
+    "section_other_desc": "Кейсы и внутриигровая валюта.",
+
+    "cart_title": "Корзина",
+    "cart_empty": "Корзина пуста. Добавьте товар.",
+    "cart_total_label": "Итого:",
+    "cart_pay_btn": "Оплатить в Telegram"
+  },
+
+  "uk": {
+    "nav_donate": "Донат",
+    "nav_rules": "Правила",
+    "nav_cases": "Кейси",
+    "nav_contacts": "Контакти",
+
+    "shop_title": "Магазин донату",
+    "shop_subtitle": "Обери привілеї, термін дії, додай до кошика та оплати через Telegram.",
+
+    "section_donates": "Донат",
+    "section_donates_desc": "Ранги та привілеї сервера.",
+
+    "section_other": "Інше",
+    "section_other_desc": "Кейси та внутрішньоігрова валюта.",
+
+    "cart_title": "Кошик",
+    "cart_empty": "Кошик порожній. Додайте товар.",
+    "cart_total_label": "Разом:",
+    "cart_pay_btn": "Оплатити в Telegram"
+  },
+
+  "en": {
+    "nav_donate": "Donate",
+    "nav_rules": "Rules",
+    "nav_cases": "Cases",
+    "nav_contacts": "Contacts",
+
+    "shop_title": "Donate Shop",
+    "shop_subtitle": "Choose a rank, select duration, add to cart and pay via Telegram.",
+
+    "section_donates": "Donates",
+    "section_donates_desc": "Server ranks and privileges.",
+
+    "section_other": "Other",
+    "section_other_desc": "Cases and in-game currency.",
+
+    "cart_title": "Cart",
+    "cart_empty": "Your cart is empty. Add an item.",
+    "cart_total_label": "Total:",
+    "cart_pay_btn": "Pay in Telegram"
+  }
+}
