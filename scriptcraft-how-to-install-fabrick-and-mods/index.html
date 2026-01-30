@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Встановлення мод паків для гри - ScriptCraft / RightHorizon</title>
+<script src="assets/3.4.17"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f1f0;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #faf8f7;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #d98ba0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #c67587;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        h1 {
+            color: #d98ba0;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: #c67587;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #5a5a5a;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .download-section {
+            background-color: #faf8f7;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .download-link {
+            display: inline-block;
+            background-color: #d98ba0;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #c67587;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #faf8f7;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            color: #8a8a8a;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            main {
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://righthorizon.online" class="fas fa-mountain">RightHorizon</a>
+        <a href="https://righthorizon.online" class="text-sm text-[#d98ba0] hover:text-pink-700">- Для серверу</a>
+        <a href="https://righthorizon.online" class="text-sm font-bold bg-gradient-to-r from-[#E03C35] to-[#B15D00] bg-clip-text text-transparent hover:text-gray-700">ScriptCraft</a>
+        
+    </nav>
+
+    <main>
+        <h1 class="text-xl font-bold">Як встановити Fabric 1.21.11</h1>
+        <p>Багато зараз сучасних лаунчерів для гри в Minecraft підтримують версію Fabric 1.21.11 - (Loader 0.18.2), а для гри на сервері та потреби модів потрібно встановити Fabric Loader 0.18.3 (або новіше) і зараз я покажу як це можна зробити.</p>
+        <img src="assets/images/ver.png" alt="скрін 1">
+        <h2 class="text-xl font-bold">Завантаження інсталяції Fabric</h2>
+        <p>Перейдіть на офіційну сторінку завантаження Fabric: <a href="https://fabricmc.net/use/" class="text-blue-500 underline">https://fabricmc.net/use/</a>. Тут ви знайдете різні версії Fabric для завантаження. Але поки нас цікавить велика синя кнопка "Download for Windows" - натискаємо на неї. (Якщо у вас інша операційна система, скачайте jar файл, кнопка знизу.)</p>
+        <img src="assets/images/fab.png" alt="скрін 2">
+        <h2 class="text-xl font-bold">Встановлення Fabric</h2>
+        <p>Після завантаження інсталятора, відкрийте його. Виберіть версію Minecraft (1.21.11) та переконайтеся, що обрана версія Fabric Loader (0.18.3 або новіше). Натисніть "Install" або "Встановити "для початку встановлення.</p>
+        <img src="assets/images/fab1.png" alt="скрін 3">
+        <h2 class="text-xl font-bold">Завершення інсталяції Fabric</h2>
+        <p>Коли Ви побачите повідомлення про успішне встановлення, це означає, що Fabric був успішно встановлений на ваш Minecraft клієнт.</p>
+        <img src="assets/images/fab2.png" alt="скрін 3">
+        <h2 class="text-xl font-bold">Перевірка інсталяції Fabric</h2>
+        <p>Відкрийте (або перезапустіть) ваш Minecraft лаунчер. У списку версій виберіть (прибл.)"fabric-loader-0.18.4-1.21.11" і натисніть "Play" або "Грати". Якщо гра запускається без проблем, значить Fabric був встановлений успішно. Після запуску гри, закрийте її для встановлення модів для серверу (див. нижче).</p>
+        <img src="assets/images/ver2.png" alt="скрін 3">
+        <h1 class="text-xl font-bold py-6 text-center">———————————————————————————</h1>
+        <h2 class="font-bold text-xl">Завантаження модів</h2>
+        <p>Увесь проект складається з модів, які ви можете завантажити за посиланнями нижче. Всі моди сумісні з Fabric 1.21.11 (Loader 0.18.3 або новіше).</p>
+        <p class="py-2">Також я підготував дві версії мод паків:</p>
+        <p>1. Проста збірка, (Яка треба тільки для входу на сервер)</p>
+        <p class="py-2">2. Оптимізуюча збірка (Спеціально для тих, у кого слабий комп'ютер, або треба більше FPS або потужність)</p>
+        <p>Завантажити Ви можете їх нижче, натиснувши на якусь з кнопок.</p>
+        <div class="download-section gap-4">
+            <a href="./assets/zip/mods.zip" class="download-link block w-72 text-center">Завантажити першу збірку</a>
+            <a href="./assets/zip/optimization_mods.zip" class="download-link block w-72 text-center">Завантажити другу збірку</a>
+        </div>
+        <h2 class="font-bold text-xl">Встановлення мод-пака</h2>
+        <p class="py-2">Після того коли Ви завантажили мод-пак, його ж треба ще встановити, тому відкрийте архів з модами, та перейдіть до головної папки Minecraft, а потім в папку "mods"</p>
+        <p>За таким рухом "C:\Users\НАЗВА-ПК\AppData\Roaming\.minecraft\mods"</p>
+        <p>Та закиньте усі моди з архіву в папку "mods" щоб у Вас було як на скріншоті (див. нижче)</p>
+        <p class="py-5">(В мене оптимізуючий мод-пак)</p>
+        <img src="assets/images/mods.png" alt="скрін 3">
+        <h2 class="font-bold text-xl">Кінець встановлення мод-пака і Fabric</h2>
+        <p class="py-2">Ну ось і все! Все що треба було, вже є в Вашому комп'ютері, залишилось зайти в гру, та зайти на сервер, для комфортної гри.</p>
+        <span>По іншим питанням, чекаю Вас в</span>
+        <a href="https://t.me/LastGrossMB" target="_blank" class="text-xl font-bold text-sm text-gray-500 hover:text-blue-400 duration-300">Telegram</a>
+        <span>(ну тіпа клік по тексту, або ось ЮЗ - @LastGrossMB)</span>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#faf8f7] py-10">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-gray-400">
+        <div> 
+            <a href="https://devbx3d.online" target="_blank">
+                <img src="assets/images/logo.png" alt="Logo" class="h-16 object-contain hover:opacity-80 transition"> 
+            </a>
+        </div>
+        <div class="text-center md:text-left">
+            <p class="mt-2">
+                <span data-lang-key="copyright">© 2026 RightHorizon. Усі права захищені</span>
+            </p>
+            <p class="mt-2">
+                <span data-lang-key="created_by">Створено за допомогою - </span>
+                <a href="https://devbx3d.online" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-bold">DevBX3D Studio</a>
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
