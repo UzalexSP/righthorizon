@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RightHorizon - Мир среди вершин</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title data-lang="ru" style="display:none;">RightHorizon - Мир среди вершин</title>
+    <title data-lang="uk">RightHorizon - Світ серед вершин</title>
+    <title data-lang="en" style="display:none;">RightHorizon - World Among the Peaks</title>
+<script src="assets/3.4.17"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .hero-section {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/theme/lec.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/theme/fon2.png');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -54,29 +56,59 @@
 <body class="bg-gray-900 text-gray-100 font-sans">
     <!-- навбар -->
     <nav class="fixed w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm z-50 border-b border-gray-800">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-green-400 hover:text-green-300 transition">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition flex items-center">
                 <i class="fas fa-mountain mr-2"></i>RIGHTHORIZON
             </a>
-            <div class="flex space-x-6">
-                <a href="404.html" class="text-gray-300 hover:text-green-400 transition">Донат</a>
-                <a href="404.html" class="text-gray-300 hover:text-green-400 transition">Контакты</a>
+            
+            <!-- десктоп меню -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="donate/" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="donate">Донат</a>
+                <a href="rules/" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="rules">Правила</a>
+                <a href="#contacts" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="contacts">Контакты</a>
+                <!-- лангуаге селектор бля -->
+                <select id="language-selector" class="font-bold bg-gray-800 text-white border-2 border-blue-700 rounded px-2 py-1 text-sm ml-4">
+                    <option value="ru" class="font-bold">RU</option>
+                    <option value="uk" selected class="font-bold">UA</option>
+                    <option value="en" class="font-bold">EN</option>
+                </select>
+            </div>
+            
+            <!-- ну там для телефона выбор, ок -->
+            <div class="md:hidden flex items-center space-x-2">
+                <button id="mobile-menu-button" class="text-blue-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
-    </nav>
-
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-gray-800 border-t border-gray-700 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="donate/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="donate">Донат</a>
+                <a href="rules/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="rules">Правила</a>
+                <a href="#contacts" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="contacts">Контакты</a>
+                <!-- Mobile Language Selector -->
+                <div class="px-3 py-2">
+                    <select id="mobile-language-selector" class="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 text-sm w-full">
+                        <option value="ru" class="font-bold">Русский</option>
+                        <option value="uk" selected class="font-bold">Українська</option>
+                        <option value="en" class="font-bold">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+</nav>
     <!-- главный экран, начальные строчки -->
     <section class="hero-section flex flex-col justify-center items-center relative">
         <div class="text-center px-4">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">RIGHTHORIZON</h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto drop-shadow-md">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg" data-lang-key="hero_title">RIGHTHORIZON</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto drop-shadow-md" data-lang-key="hero_subtitle">
                 Погрузись в игровой мир нашего сервера: исследуй просторы, строй грандиозные базы, участвуй в ивентах и стань частью дружного сообщества!
             </p>
-            <p class="text-3xl md:text-3xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md">[СЕРВЕР НЕДОСТУПЕН!]</p>
-            <button id="join-btn" onclick="document.querySelector('.section-divider').scrollIntoView({behavior: 'smooth', block: 'start'})" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Присоединиться</button>
+            <p class="text-3xl md:text-3xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md" data-lang-key="server_unavailable">[СЕРВЕР НЕДОСТУПЕН!]</p>
+            <button id="join-btn" onclick="document.querySelector('.section-divider').scrollIntoView({behavior: 'smooth', block: 'start'})" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105" data-lang-key="join_button">Присоединиться</button>
         </div>
-        
-        <div class="absolute bottom-10 scroll-down-arrow">
+<div class="absolute bottom-10 scroll-down-arrow">
             <i class="fas fa-chevron-down text-3xl text-white animate-bounce"></i>
         </div>
     </section>
@@ -85,306 +117,243 @@
     
     <!-- по просьбе моего разраба, хуй знает зачем это -->
     <div class="pt-20"></div>
-
     <!-- почему тип наш сервак лучший -->
     <section class="py-20 bg-gray-900" id="why-best-server">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16 text-green-400">Почему наш сервер?</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 text-blue-400" data-lang-key="why_best_server">Почему наш сервер?</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <!-- карта 1 -->
                 <div class="bg-gray-800 rounded-xl p-8 card-hover">
-                    <div class="text-green-500 text-5xl mb-6">
+                    <div class="text-blue-500 text-5xl mb-6">
                         <i class="fas fa-mountain"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Уникальный ландшафт</h3>
-                    <p class="text-gray-300">Генерация мира с усиленными горными биомами, глубокими каньонами и живописными долинами. Идеально для строительства и исследований.</p>
+                    <h3 class="text-2xl font-bold mb-4" data-lang-key="unique_landscape">Уникальный ландшафт</h3>
+                    <p class="text-gray-300" data-lang-key="landscape_desc">Генерация мира с усиленными горными биомами, глубокими каньонами и живописными долинами. Идеально для строительства и исследований.</p>
                 </div>
                 
                 <!-- карта 2 -->
                 <div class="bg-gray-800 rounded-xl p-8 card-hover">
-                    <div class="text-green-500 text-5xl mb-6">
+                    <div class="text-blue-500 text-5xl mb-6">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Дружное сообщество</h3>
-                    <p class="text-gray-300">Наш сервер объединяет творческих строителей и исследователей. Регулярные ивенты и конкурсы с ценными призами.</p>
+                    <h3 class="text-2xl font-bold mb-4" data-lang-key="friendly_community">Дружное сообщество</h3>
+                    <p class="text-gray-300" data-lang-key="community_desc">Наш сервер объединяет творческих строителей и исследователей. Регулярные ивенты и конкурсы с ценными призами.</p>
                 </div>
                 
                 <!-- карта 3 -->
                 <div class="bg-gray-800 rounded-xl p-8 card-hover">
-                    <div class="text-green-500 text-5xl mb-6">
+                    <div class="text-blue-500 text-5xl mb-6">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Стабильная связь с администрацией</h3>
-                    <p class="text-gray-300">Присоиденяйтесь к дискорду, либо телеграмм, чтобы отбратиться за помощью. Мы всегда рады Вам помочь, чем угодно.</p>
+                    <h3 class="text-2xl font-bold mb-4" data-lang-key="admin_support">Стабильная связь с администрацией</h3>
+                    <p class="text-gray-300" data-lang-key="support_desc">Присоиденяйтесь к дискорду, либо телеграмм, чтобы отбратиться за помощью. Мы всегда рады Вам помочь, чем угодно.</p>
                 </div>
             </div>
         </div>
     </section>
-    
     <!-- статистика сервака -->
     <section class="py-20 bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
                     <div class="text-5xl font-bold text-orange-400 mb-2">?</div>
-                    <div class="text-gray-300">Работа сервера</div>
+                    <div class="text-gray-300" data-lang-key="server_uptime">Работа сервера</div>
                 </div>
                 <div>
-                    <div class="text-5xl font-bold text-green-400 mb-2">1.20.1</div>
-                    <div class="text-gray-300">Версия игры</div>
+                    <div class="text-5xl font-bold text-blue-400 mb-2">1.20.1</div>
+                    <div class="text-gray-300" data-lang-key="game_version">Рекомендуемая версия игры</div>
                 </div>
                 <div>
                     <div class="text-5xl font-bold text-red-400 mb-2">-</div>
-                    <div class="text-gray-300">Активных игроков</div>
+                    <div class="text-gray-300" data-lang-key="active_players">Активных игроков</div>
                 </div>
                 <div>
                     <div class="text-5xl font-bold text-orange-400 mb-2">?</div>
-                    <div class="text-gray-300">Всех сотрудников проекта</div>
+                    <div class="text-gray-300" data-lang-key="project_staff">Всех сотрудников проекта</div>
                 </div>
             </div>
         </div>
     </section>
-    
     <!-- галерея скринов -->
     <section class="py-20 bg-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16 text-green-400">Галерея сервера</h2>
-            
+            <h2 class="text-4xl font-bold text-center mb-16 text-blue-400" data-lang-key="server_gallery">Галерея сервера</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="relative overflow-hidden rounded-xl h-64">
                     <img src="assets/images/drakon.png" 
                          alt="Дракоша" 
                          class="w-full h-full object-cover transition duration-500 hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                        <span class="text-white text-xl font-bold">Дракоша</span>
+                        <span class="text-white text-xl font-bold" data-lang-key="dragon_image">Дракоша</span>
                     </div>
                 </div>
                 
-                <div class="relative overflow-hidden rounded-xl h-64">
+<div class="relative overflow-hidden rounded-xl h-64">
                     <img src="assets/images/ya_na_scene.png" 
                          alt="Деревня в горах" 
                          class="w-full h-full object-cover transition duration-500 hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                        <span class="text-white text-xl font-bold">Я на своей сцене</span>
+                        <span class="text-white text-xl font-bold" data-lang-key="my_stage">Я на своей сцене</span>
                     </div>
                 </div>
                 
-                <div class="relative overflow-hidden rounded-xl h-64">
+<div class="relative overflow-hidden rounded-xl h-64">
                     <img src=" assets/images/vlad.png" 
                          alt="Владислав" 
                          class="w-full h-full object-cover transition duration-500 hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                        <span class="text-white text-xl font-bold">Владислав</span>
+                        <span class="text-white text-xl font-bold" data-lang-key="vladislav">Владислав</span>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-10">
-                <button class="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                <button class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300" data-lang-key="view_all">
                     Смотреть все
                 </button>
             </div>
         </div>
     </section>
-    
     <!-- донатная секция -->
     <section id="donate" class="py-20 bg-gray-800">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-6 text-green-400">Поддержать сервер</h2>
-            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">Ваша поддержка помогает развивать сервер и улучшать игровой опыт для всех</p>
+            <h2 class="text-4xl font-bold mb-6 text-blue-400" data-lang-key="support_server">Поддержать сервер</h2>
+            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto" data-lang-key="support_description">Ваша поддержка помогает развивать сервер и улучшать игровой опыт для всех</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div class="bg-gray-700 rounded-xl p-6 card-hover">
-                    <h3 class="text-2xl font-bold mb-4 text-green-400">Горный путник</h3>
-                    <p class="text-gray-300 mb-6">$2.49 USD</p>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-400" data-lang-key="mountain_wanderer">Shadow</h3>
+                    <p class="text-xl text-gray-300 mb-6">59₴</p>
                     <ul class="text-left space-y-2 mb-6 text-gray-300">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Префикс в чате</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> 3 дополнительных дома</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="chat_prefix">Префикс в чате</span></li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="extra_homes_3">3 дополнительных дома</span></li>
                     </ul>
-                    <a href="404.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg w-full transition block text-center">Купить</a>
+                    <a href="donate/donate.html" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg w-full transition block text-center" data-lang-key="buy">Купить</a>
                 </div>
                 
-                <div class="bg-gray-700 rounded-xl p-6 card-hover border-2 border-green-500 transform scale-105">
-                    <div class="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 rounded-bl-lg rounded-tr-xl text-sm font-bold">Популярно</div>
-                    <h3 class="text-2xl font-bold mb-4 text-green-400">Горный мастер</h3>
-                    <p class="text-gray-300 mb-6">$5.99 USD</p>
+                <div class="bg-gray-700 rounded-2xl p-6 card-hover border-2 border-blue-500 transform scale-105 relative">
+                    <div class="absolute top-0 right-0 bg-blue-500 text-white px-3 py-1 rounded-bl-lg rounded-tr-xl text-sm font-bold" data-lang-key="popular">Популярно</div>
+                    <h3 class="text-2xl font-bold mb-4 text-red-400" data-lang-key="mountain_master">Monster</h3>
+                    <p class="text-xl text-gray-300 mb-6">109₴</p>
                     <ul class="text-left space-y-2 mb-6 text-gray-300">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Префикс в чате</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> 10 дополнительных домов</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Доступ к приватному миру</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="chat_prefix">Префикс в чате</span></li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="extra_homes_10">10 дополнительных домов</span></li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="private_world_access">Доступ к приватному миру</span></li>
                     </ul>
-                   <a href="404.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg w-full transition block text-center">Купить</a>
+                   <a href="donate/donate.html" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg w-full transition block text-center" data-lang-key="buy">Купить</a>
                 </div>
                 
                 <div class="bg-gray-700 rounded-xl p-6 card-hover">
-                    <h3 class="text-2xl font-bold mb-4 text-green-400">Горный легенда</h3>
-                    <p class="text-gray-300 mb-6">$12.99 USD</p>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-400" data-lang-key="mountain_legend">Горный легенда</h3>
+                    <p class="text-xl text-gray-300 mb-6">249₴</p>
                     <ul class="text-left space-y-2 mb-6 text-gray-300">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Префикс в чате</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Неограниченные дома</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Доступ к приватному миру</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Персональная помощь от админов</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="chat_prefix">Префикс в чате</span></li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="unlimited_homes">Неограниченные дома</span></li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="private_world_access">Доступ к приватному миру</span></li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i> <span data-lang-key="personal_admin_help">Персональная помощь от админов</span></li>
                     </ul>
-                    <a href="404.html" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg w-full transition block text-center">Купить</a>
+                    <a href="donate/donate.html" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg w-full transition block text-center" data-lang-key="buy">Купить</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- это короче чтобы айпи копировать да -->
+<!-- это короче чтобы айпи копировать да -->
     <section class="py-20 bg-gray-800 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="assets/theme/lec2.png" 
                  alt="лесной фон" 
                  class="w-full h-full object-cover opacity-20">
         </div>
-        
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-6 text-green-400">Готов к приключениям?</h2>
-                <p class="text-xl mb-10 text-gray-300">Присоединяйся к нашему сообществу исследователей и строителей. Начни свое путешествие среди величественных гор уже сегодня!</p>
+                <h2 class="text-4xl font-bold mb-6 text-blue-400" data-lang-key="ready_for_adventure">Готов к приключениям?</h2>
+                <p class="text-xl mb-10 text-gray-300" data-lang-key="join_community">Присоединяйся к нашему сообществу исследователей и строителей. Начни свое путешествие среди величественных гор уже сегодня!</p>
                 
-                <div class="bg-gray-900 rounded-xl p-8 inline-block">
+                <div class="bg-gray-900 rounded-xl p-8 inline-block w-full">
                     <div class="text-left mb-6">
-                        <h3 class="text-2xl font-bold mb-2 text-green-400">IP-адрес сервера:</h3>
-                        <div class="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
-                            <code class="text-xl">play.righthorizon.online</code>
-                            <button class="ml-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition duration-300" onclick="copyToClipboard('play.righthorizon.online')">
+                        <h3 class="text-2xl font-bold mb-2 text-blue-400" data-lang-key="server_ip">IP-адрес сервера:</h3>
+                        <div class="bg-gray-800 p-4 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <code class="text-xl break-all">play.righthorizon.online</code>
+                            <button id="copy-btn" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 w-full sm:w-auto" onclick="copyToClipboard('play.righthorizon.online')" data-lang-key="copy">
                                 Копировать
                             </button>
                         </div>
                     </div>
-                            <p class="text-xl md:text-xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md">[СЕРВЕР НЕДОСТУПЕН!]</p>    
+<p class="text-xl md:text-xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md" data-lang-key="server_not">[СЕРВЕР НЕДОСТУПЕН!]</p>
                     <div class="flex flex-wrap justify-center gap-4 mt-8">
-                        <a href="https://discord.gg/JPNATqMdyf" class="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                        <a href="https://discord.gg/JPNATqMdyf" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
                             <i class="fab fa-discord mr-2"></i> Discord
                         </a>
-                        <a href="https://t.me/RightHorizon_Music" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                        <a href="https://t.me/RightHorizon_Music" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
                             <i class="fab fa-telegram mr-2"></i>Telegram
                         </a>
-                        <a href="https://www.youtube.com/@UzalexDR" class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                        <a href="https://www.youtube.com/@uzalex" target="_blank" class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
                             <i class="fab fa-youtube mr-2"></i> YouTube
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
+</div>
     </section>
     
     <div class="section-divider-bottom"></div>
-    
     <!-- связь с нами бобиками -->
     <section id="contacts" class="py-20 bg-gray-900">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-6 text-green-400">Наши контакты</h2>
-            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">Свяжитесь с нами по любым вопросам</p>
+            <h2 class="text-4xl font-bold mb-6 text-blue-400" data-lang-key="our_contacts">Наши контакты</h2>
+            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto" data-lang-key="contact_us_any_questions">Свяжитесь с нами по любым вопросам</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div class="bg-gray-800 rounded-xl p-8 card-hover">
-                    <div class="text-green-500 text-5xl mb-6">
+                    <div class="text-blue-500 text-5xl mb-6">
                         <i class="fab fa-discord"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Discord</h3>
-                    <p class="text-gray-300 mb-4">Присоединяйтесь к нашему сообществу</p>
-                    <a href="https://discord.gg/JPNATqMdyf" class="text-green-400 hover:text-green-300 font-medium">Don`t created!</a>
+                    <p class="text-gray-300 mb-4" data-lang-key="join_community_discord">Присоединяйтесь к нашему сообществу</p>
+                    <a href="https://discord.gg/JPNATqMdyf" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium">discord.gg/JPNATqMdyf</a>
                 </div>
                 
                 <div class="bg-gray-800 rounded-xl p-8 card-hover">
-                    <div class="text-green-500 text-5xl mb-6">
+                    <div class="text-blue-500 text-5xl mb-6">
                         <i class="fab fa-telegram"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Telegram</h3>
-                    <p class="text-gray-300 mb-4">Новости, чат и анонсы</p>
-                    <a href="https://t.me/RightHorizon_Music" class="text-green-400 hover:text-green-300 font-medium">t.me/RightHorizon_Music</a>
+                    <p class="text-gray-300 mb-4" data-lang-key="news_chat_announcements">Новости, чат и анонсы</p>
+                    <a href="https://t.me/RightHorizon_Music" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium">t.me/RightHorizon_Music</a>
                 </div>
                 
                 <div class="bg-gray-800 rounded-xl p-8 card-hover">
-                    <div class="text-green-500 text-5xl mb-6">
+                    <div class="text-blue-500 text-5xl mb-6">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Email</h3>
-                    <p class="text-gray-300 mb-4">Для деловых предложений</p>
-                    <a href="mailto:support@mountain-craft.ru" class="text-green-400 hover:text-green-300 font-medium">support@righthorizon.online</a>
+                    <p class="text-gray-300 mb-4" data-lang-key="business_proposals">Для деловых предложений</p>
+                    <a href="mailto:zirenkogd@gmail.com" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium">zirenkogd@gmail.com</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- это нижняя хуйня, права защищены, кто спиздит это тот уебище -->
-    <footer class="bg-gray-800 py-10">
-        <div class="container mx-auto px-4 text-center text-gray-400">
-            <p>© 2025 RightHorizon. Все права защищены.</p>
-            <p class="mt-2">Создателем является - <a href="http://www.devbx3d.online/" class="text-green-400 hover:text-green-300 underline font-bold">DevBX3D Studio</a>
-            <p class="mt-2">Сайт пока в альфа режиме и ничего еще нету, ждите обновлений. Версия сайта Alpha-0.1693</p>
-            <p class="mt-2">Старые версии моих сайтов -> <a href="0.0412/index.html" class="text-green-400 hover:text-green-300 underline font-bold">RH_Alpha-0.0412</a> - <a href="0.0018/index.html" class="text-green-400 hover:text-green-300 underline font-bold">RH_Alpha-0.0018</a></p>
+<!-- это нижняя хуйня, права защищены, кто спиздит это тот уебище -->
+<footer class="bg-gray-800 py-10">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-gray-400">
+        <div> 
+            <a href="https://devbx3d.online" target="_blank">
+                <img src="assets/images/logo.png" alt="Logo" class="h-16 object-contain hover:opacity-80 transition"> 
+            </a>
         </div>
-    </footer>
-    
-<!-- этот блядь скрипт пол сайта убивает, уебище -->
-    <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(function() {
-                alert('IP-адрес скопирован в буфер обмена: ' + text);
-            }, function(err) {
-                console.error('Не удалось скопировать текст: ', err);
-            });
-        }
-        
-        // Enhanced smooth scrolling for all scroll operations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        smoothScrollTo(target);
-                    }
-                });
-            });
-            
-            // Handle programmatic scrolls like the join button
-            window.smoothScrollTo = function(target) {
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                const startPosition = window.pageYOffset;
-                const distance = targetPosition - startPosition;
-                const duration = 800; // milliseconds
-                let startTime = null;
-                
-                function animation(currentTime) {
-                    if (startTime === null) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-                    window.scrollTo(0, run);
-                    if (timeElapsed < duration) requestAnimationFrame(animation);
-                }
-                
-                // Easing function for smooth acceleration/deceleration
-                function easeInOutQuad(t, b, c, d) {
-                    t /= d/2;
-                    if (t < 1) return c/2*t*t + b;
-                    t--;
-                    return -c/2 * (t*(t-2) - 1) + b;
-                }
-                
-                requestAnimationFrame(animation);
-            };
-            
-            // Update the join button to use our new smooth scroll
-            const joinBtn = document.getElementById('join-btn');
-            if (joinBtn) {
-                joinBtn.onclick = function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector('.section-divider');
-                    if (target) {
-                        smoothScrollTo(target);
-                    }
-                };
-            }
-        });
-    </script>
-
-</body>
-</html>
-
+        <div class="text-center md:text-left">
+            <p class="mt-2">
+                <span data-lang-key="copyright">© 2025 RightHorizon. Все права защищены.</span>
+            </p>
+            <p class="mt-2">
+                <span data-lang-key="created_by">Создателем является - </span>
+                <a href="https://devbx3d.online" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-bold">DevBX3D Studio</a>
+            </p>
+            <p class="mt-2 text-sm" data-lang-key="site_alpha_mode">
+                Сайт пока в альфа режиме и ничего еще нету, ждите обновлений. Версия сайта Alpha-0.1693
+            </p>
+        </div>
+    </div>
+</footer>
+<script src="random2.js"></script>
