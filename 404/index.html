@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightHorizon - Мир среди вершин</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/theme/lec.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            transition: all 0.5s ease;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-down-arrow {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(to bottom, #1a202c, transparent);
+        }
+        
+        .section-divider-bottom {
+            height: 100px;
+            background: linear-gradient(to top, #1a202c, transparent);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- навбар -->
+    <nav class="fixed w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition">
+                <i class="fas fa-mountain mr-2"></i>RIGHTHORIZON
+            </a>
+
+            <!-- десктоп меню -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="404.html" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="donate">Донат</a>
+                <a href="rules\rules.html" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="rules">Правила</a>
+                <a href="#contacts" class="text-gray-300 hover:text-blue-400 transition" data-lang-key="contacts">Контакты</a>
+                <!-- лангуаге селектор бля -->
+                <select id="language-selector" class="font-bold bg-gray-800 text-white border-2 border-blue-700 rounded px-2 py-1 text-sm ml-4">
+                    <option value="ru" class="font-bold">RU</option>
+                    <option value="uk" selected class="font-bold">UA</option>
+                    <option value="en" class="font-bold">EN</option>
+                </select>
+            </div>
+            
+            <!-- ну там для телефона выбор, ок -->
+            <div class="md:hidden flex items-center space-x-2">
+                <button id="mobile-menu-button" class="text-blue-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-gray-800 border-t border-gray-700 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="404.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="donate">Донат</a>
+                <a href="rules.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="rules">Правила</a>
+                <a href="#contacts" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700" data-lang-key="contacts">Контакты</a>
+                <!-- Mobile Language Selector -->
+                <div class="px-3 py-2">
+                    <select id="mobile-language-selector" class="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 text-sm w-full">
+                        <option value="ru" class="font-bold">Русский</option>
+                        <option value="uk" selected class="font-bold">Українська</option>
+                        <option value="en" class="font-bold">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- главный экран, начальные строчки -->
+    <section class="hero-section flex flex-col justify-center items-center relative">
+        <div class="text-center px-4">
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-lg">404</h1>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 text-red-400 drop-shadow-lg">Страница не найдена</h2>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto drop-shadow-md">
+                Упс! Похоже, вы заблудились в лесу. Страница, которую вы ищете, не существует или была перемещена.
+            </p>
+            <a href="first.html" class="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-xl transition duration-300 inline-block">
+                Вернуться на главную
+            </a>
+        </div>
+        
+        <div class="absolute bottom-10 scroll-down-arrow">
+            <a href="#info" class="text-white text-4xl animate-bounce">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- по просьбе моего разраба, хуй знает зачем это -->
+    <div class="pt-20"></div>
+
+   <!-- это короче чтобы айпи копировать да -->
+    <section class="py-20 bg-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/theme/lec2.png" 
+                 alt="лесной фон" 
+                 class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6 text-blue-400" data-lang-key="ready_for_adventure">Готов к приключениям?</h2>
+                <p class="text-xl mb-10 text-gray-300" data-lang-key="join_community">Присоединяйся к нашему сообществу исследователей и строителей. Начни свое путешествие среди величественных гор уже сегодня!</p>
+                
+                <div class="bg-gray-900 rounded-xl p-8 inline-block w-full">
+                    <div class="text-left mb-6">
+                        <h3 class="text-2xl font-bold mb-2 text-blue-400" data-lang-key="server_ip">IP-адрес сервера:</h3>
+                        <div class="bg-gray-800 p-4 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <code class="text-xl break-all">play.righthorizon.online</code>
+                            <button id="copy-btn" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 w-full sm:w-auto" onclick="copyToClipboard('play.righthorizon.online')" data-lang-key="copy">
+                                Копировать
+                            </button>
+                        </div>
+                    </div>
+<p class="text-xl md:text-xl font-bold mb-8 text-red-400 max-w-2xl mx-auto drop-shadow-md" data-lang-key="server_not">[СЕРВЕР НЕДОСТУПЕН!]</p>
+                    <div class="flex flex-wrap justify-center gap-4 mt-8">
+                        <a href="https://discord.gg/JPNATqMdyf" class="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-discord mr-2"></i> Discord
+                        </a>
+                        <a href="https://t.me/RightHorizon_Music" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-telegram mr-2"></i>Telegram
+                        </a>
+                        <a href="https://www.youtube.com/@UzalexDR" class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-full flex items-center transition duration-300">
+                            <i class="fab fa-youtube mr-2"></i> YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+</div>
+    </section>
+    
+    <div class="section-divider-bottom"></div>
+    
+    <!-- это нижняя хуйня, права защищены, кто спиздит это тот уебище -->
+    <footer class="bg-gray-800 py-10">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p data-lang-key="copyright">© 2025 RightHorizon. Все права защищены.</p>
+            <p class="mt-2" data-lang-key="created_by">Создателем является - <a href="devbx3d.online" class="text-blue-400 hover:text-blue-300 underline font-bold">DevBX3D Studio</a>
+            <p class="mt-2" data-lang-key="site_alpha_mode">Сайт пока в альфа режиме и ничего еще нету, ждите обновлений. Версия сайта Alpha-0.1693</p>
+        </div>
+    </footer>
+<script src="transl404.js"></script>
+</body>
+</html>
